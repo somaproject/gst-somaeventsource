@@ -1,0 +1,64 @@
+8
+
+dir
+3192
+https://soma.mit.edu/svn/software/gstsomaeventsource/trunk/src/.deps
+https://soma.mit.edu/svn
+
+
+
+2008-09-16T12:01:48.698297Z
+3066
+/C=US/ST=Massachusetts/O=Massachusetts Institute of Technology/OU=Client CA v1/CN=Eric M Jonas/emailAddress=jonas@MIT.EDU
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+5dccc5d9-beb7-0310-bf71-cc18d937a3f4
+
+libgstplugin_la-gstplugin.Plo
+file
+
+
+
+
+2008-11-09T23:19:30.000000Z
+3a344994edcead1cdcf1f42a39aa6bc8
+2008-09-16T12:01:48.698297Z
+3066
+/C=US/ST=Massachusetts/O=Massachusetts Institute of Technology/OU=Client CA v1/CN=Eric M Jonas/emailAddress=jonas@MIT.EDU
+
+libsomaeventsource_la-gstplugin.Plo
+file
+
+
+
+
+2008-11-09T23:19:30.000000Z
+aa773712902a5f5b915b4f43775f3c94
+2008-09-16T12:01:48.698297Z
+3066
+/C=US/ST=Massachusetts/O=Massachusetts Institute of Technology/OU=Client CA v1/CN=Eric M Jonas/emailAddress=jonas@MIT.EDU
+
+libsomaeventsource_la-gstsomaeventsource.Plo
+file
+
+
+
+
+2008-11-09T23:19:30.000000Z
+0e891ee063991def6c68c7039d77e48a
+2008-09-16T12:01:48.698297Z
+3066
+/C=US/ST=Massachusetts/O=Massachusetts Institute of Technology/OU=Client CA v1/CN=Eric M Jonas/emailAddress=jonas@MIT.EDU
+

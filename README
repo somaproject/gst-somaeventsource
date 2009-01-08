@@ -1,0 +1,45 @@
+For the time being this is just notes:
+
+SETUP
+------------------------------------------------------------
+Once you've build the plugin, you need to make sure that you
+can find it. I've been avoiding a global install by explicitly
+setting my GST_PLUGIN_PATH like so: 
+
+GST_PLUGIN_PATH=/home/jonas/soma/gsteventsrc/trunk/src/.libs
+
+You can then test if you can find the element via
+
+gst-inspect-0.10 somaeventsource
+
+and see something like: 
+
+
+[jonas@hamiltonian trunk]$ gst-inspect-0.10 somaeventsource
+Factory Details:
+  Long name:    Soma Event Source
+  Class:        Source/Soma/Event
+  Description:  A clock-synchronous element providing Events off the network from Soma
+  Author(s):    Eric Jonas <jonas@mit.edu>
+  Rank:         none (0)
+
+...
+
+
+This should describe the pads, caps, etc. 
+
+as a test pipeline, you can try
+
+
+GST_DEBUG=1,somaeventsource:5 gst-launch-0.10 somaeventsource ! filesink location=/tmp/test.dat
+
+which will dump received events to /tmp/test.dat (with all debugging turned on)
+
+To only filter on a certain event, use the caps filter: 
+
+gst-launch-0.10 somaeventsource ! soma/event,src=1 ! filesink location=/tmp/test.dat
+
+which will only receive events from event src 1. Given that, for example, 
+soma-netbench-tx doesn't send anything on event src 1, the above should
+produce an emtpy buffer. 
+

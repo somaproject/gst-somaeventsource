@@ -1,0 +1,4 @@
+1. send a discontinuous event
+
+http://gstreamer.freedesktop.org/data/doc/gstreamer/head/pwg/html/section-time-data-flow.html
+
