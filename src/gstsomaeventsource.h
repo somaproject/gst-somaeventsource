@@ -48,6 +48,7 @@
 
 #include <gst/gst.h>
 #include <gst/base/gstpushsrc.h>
+#include <somanetevent/netevent.h>
 
 
 G_BEGIN_DECLS
@@ -74,7 +75,7 @@ struct _GstSomaEventSource
   gboolean silent;
   GstCaps *caps;
   char * somaip; 
-  NetEventHandle * pnh; 
+  struct NetEvent_Handle * pnh; 
   GstClock * peventclock; 
   GstClockTime clocktime; 
   int eventsrc; 

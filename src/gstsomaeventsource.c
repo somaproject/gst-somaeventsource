@@ -366,12 +366,12 @@ gst_soma_event_source_create (GstPushSrc * psrc, GstBuffer ** buffer)
   int srcrxcnt = 0; // how many of the events are for our filtered src; 
   // create a buffer
   sesrc->clocktime++; 
-  struct event_t * eventbuffer = malloc(MAXEVENT * sizeof(struct event_t)); 
-  struct event_t * srconlyeventbuffer = malloc(MAXEVENT * sizeof(struct event_t)); 
-  struct event_t * cursrcevt = srconlyeventbuffer; 
+  struct NetEvent_event_t * eventbuffer = malloc(MAXEVENT * sizeof(struct NetEvent_event_t)); 
+  struct NetEvent_event_t * srconlyeventbuffer = malloc(MAXEVENT * sizeof(struct NetEvent_event_t)); 
+  struct NetEvent_event_t * cursrcevt = srconlyeventbuffer; 
   
   while ((rxcnt == 0) || (rxcnt == NETEVENT_EGETEVENTS)) {
-    rxcnt = NetEvent_getEvents(sesrc->pnh, eventbuffer, MAXEVENT); 
+    rxcnt = NetEvent_getEvents(sesrc->pnh, eventbuffer, MAXEVENT, 0); 
   } 
   
   if(rxcnt < 0) {
@@ -395,17 +395,17 @@ gst_soma_event_source_create (GstPushSrc * psrc, GstBuffer ** buffer)
       // the buffer time the time-at-which-the-buffer was created? 
     } 
     if (eventbuffer[i].src == sesrc->eventsrc) {
-      memcpy(cursrcevt, &eventbuffer[i], sizeof(struct event_t));   
+      memcpy(cursrcevt, &eventbuffer[i], sizeof(struct NetEvent_event_t));   
       // debug FIXME: 
-      //fwrite(&eventbuffer[i], sizeof(struct event_t ), 1,  sesrc->debugfile); 
+      //fwrite(&eventbuffer[i], sizeof(struct NetEvent_event_t ), 1,  sesrc->debugfile); 
       cursrcevt++; 
       srcrxcnt++; 
     }
   }
-  outbuf = gst_buffer_new_and_alloc (srcrxcnt * sizeof(struct event_t)); 
+  outbuf = gst_buffer_new_and_alloc (srcrxcnt * sizeof(struct NetEvent_event_t)); 
   
   memcpy (GST_BUFFER_MALLOCDATA (outbuf), (guchar *) srconlyeventbuffer,
-	  srcrxcnt * sizeof(struct event_t)); 
+	  srcrxcnt * sizeof(struct NetEvent_event_t)); 
 
   GST_BUFFER_DATA (outbuf) = GST_BUFFER_MALLOCDATA (outbuf); 
 
